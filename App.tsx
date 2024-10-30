@@ -1,11 +1,7 @@
 import { config } from '@gluestack-ui/config';
-import { Box, GluestackUIProvider, Text, View } from '@gluestack-ui/themed';
-import { ScrollView } from 'react-native';
-import Gradient from './assets/Icons/Gradient';
-import DocumentData from './assets/Icons/DocumentData';
-import LightBulbPerson from './assets/Icons/LightbulbPerson';
-import Rocket from './assets/Icons/Rocket';
-import Logo from './assets/Icons/Logo';
+import {  GluestackUIProvider, RepeatIcon, Text, View } from '@gluestack-ui/themed';
+
+
 export default function App() {
   return (
     <GluestackUIProvider config={config}>
@@ -19,9 +15,23 @@ const Home = () => {
 const Container = () => {
   return (
     <View>
+        {/* Header */}
         <View bgColor='#003366' height={100} display='flex' alignItems='center' justifyContent='flex-end' paddingBottom={20}>
           <Text color='white' fontSize={18} fontWeight='$medium'>Language Translator</Text>
+        </View>
+
+        {/* Main */}
+        <View paddingTop={200} display='flex' flexDirection='column' alignItems='center'>
+          {/* Idiomas */}
+            <View bgColor='#E3E3E3' width={"75%"} borderRadius={50} height={50} display='flex' flexDirection='row' alignItems='center' justifyContent='space-around'>
+                <Text>English</Text>
+                  <RepeatIcon></RepeatIcon>
+                <Text>Portuguese</Text>
+            </View>
         </View>
     </View>
   );
 };
+
+
+// https://libretranslate.com/?source=en&target=pt&q=hello+world
