@@ -39,10 +39,13 @@ const Home = () => {
   return <Container />;
 };
 const Container = () => {
-  const [text, setText] = useState();
-  const [textTranslated, setTextTranslated] = useState();
-  const [langCurrent, setLangCurrent] = useState("");
-  const [langRequest, setLangRequest] = useState("");
+  const [text, setText] = useState("");
+  const [textTranslated, setTextTranslated] = useState("");
+  const [langCurrent, setLangCurrent] = useState("pt");
+  const [langRequest, setLangRequest] = useState("en");
+  const [textCurrent, setTextCurrent] = useState("Portuguese");
+  const [textRequest, setTextRequest] = useState("English");
+
 
   async function submitForm() {
     console.log(text + '/' + langCurrent + '/' +  langRequest + '/');
@@ -71,6 +74,38 @@ const Container = () => {
   useEffect(() => {
     submitForm();
   }, [text]);
+
+  const languages = [
+    {sigla: "en", language: "English"},
+    {sigla: "pt", language: "Portuguese"},
+    {sigla: "es", language: "Spanish"},
+    {sigla: "fr", language: "French"},
+    {sigla: "de", language: "German"},
+    {sigla: "it", language: "Italian"},
+    {sigla: "nl", language: "Dutch"},
+    {sigla: "ru", language: "Russian"},
+    {sigla: "zh-CN", language: "Chinese"},
+    {sigla: "ja", language: "Japanese"},
+    {sigla: "ko", language: "Korean"},
+    {sigla: "ar", language: "Arabic"},
+    {sigla: "tr", language: "Turkish"}
+  ]
+
+  useEffect(() => {
+    languages.map((l) => {
+      if(langCurrent == l.sigla){
+        setTextCurrent(l.language);
+      }
+    })
+  }, [langCurrent]);
+
+  useEffect(() => {
+    languages.map((l) => {
+      if(langRequest == l.sigla){
+        setTextRequest(l.language);
+      }
+    })
+  }, [langRequest]);
 
   return (
     <View display="flex" justifyContent="space-between" h={"$full"}>
@@ -119,20 +154,9 @@ const Container = () => {
                 <SelectDragIndicatorWrapper>
                   <SelectDragIndicator />
                 </SelectDragIndicatorWrapper>
-                <SelectItem label="English" value="en" />
-                <SelectItem label="Portuguese" value="pt" />
-                <SelectItem label="Spanish" value="es" />
-                <SelectItem label="French" value="fr" />
-                <SelectItem label="German" value="de" />
-                <SelectItem label="Italian" value="it" />
-                <SelectItem label="Dutch" value="nl" />
-                <SelectItem label="Russian" value="ru" />
-                <SelectItem label="Chinese (Simplified)" value="zh-CN" />
-                <SelectItem label="Japanese" value="ja" />
-                <SelectItem label="Korean" value="ko" />
-                <SelectItem label="Arabic" value="ar" />
-                <SelectItem label="Turkish" value="tr" />
-                <SelectItem label="Hindi" value="hi" />
+                {languages.map((l) => {
+                  return (<SelectItem label={l.language} value={l.sigla}/>)
+                })}
               </SelectContent>
             </SelectPortal>
           </Select>
@@ -152,20 +176,9 @@ const Container = () => {
                 <SelectDragIndicatorWrapper>
                   <SelectDragIndicator />
                 </SelectDragIndicatorWrapper>
-                <SelectItem label="English" value="en" />
-                <SelectItem label="Portuguese" value="pt" />
-                <SelectItem label="Spanish" value="es" />
-                <SelectItem label="French" value="fr" />
-                <SelectItem label="German" value="de" />
-                <SelectItem label="Italian" value="it" />
-                <SelectItem label="Dutch" value="nl" />
-                <SelectItem label="Russian" value="ru" />
-                <SelectItem label="Chinese (Simplified)" value="zh-CN" />
-                <SelectItem label="Japanese" value="ja" />
-                <SelectItem label="Korean" value="ko" />
-                <SelectItem label="Arabic" value="ar" />
-                <SelectItem label="Turkish" value="tr" />
-                <SelectItem label="Hindi" value="hi" />
+                {languages.map((l) => {
+                  return (<SelectItem label={l.language} value={l.sigla}/>)
+                })}
               </SelectContent>
             </SelectPortal>
           </Select>
@@ -188,7 +201,7 @@ const Container = () => {
               flexDirection="row"
               justifyContent="space-between"
             >
-              <Text fontSize={25}>Português</Text>
+              <Text fontSize={25}>{textCurrent}</Text>
               <CloseIcon width={20} height={20}></CloseIcon>
             </View>
             <View paddingHorizontal={20} paddingTop={16}>
@@ -220,7 +233,7 @@ const Container = () => {
         <View
           bgColor="#E3E3E3"
           width={"75%"}
-          height={216}
+          height={150}
           borderRadius={16}
           marginTop={20}
           justifyContent="space-between"
@@ -233,7 +246,7 @@ const Container = () => {
               flexDirection="row"
               justifyContent="space-between"
             >
-              <Text fontSize={25}>Inglês</Text>
+              <Text fontSize={25}>{textRequest}</Text>
             </View>
             <View paddingHorizontal={20} paddingTop={16}>
               <Text fontSize={17}>{textTranslated}</Text>
