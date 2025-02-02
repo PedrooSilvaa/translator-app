@@ -1,32 +1,24 @@
-This is a [Next.js](https://github.com/expo/expo) + [Gluestack-ui](https://ui.gluestack.io/) project template bootstrapped with [`create-expo-app`](https://docs.expo.dev/get-started/create-a-project/).
+# translator-app
 
-## Getting Started
+Aplicativo tradutor desenvolvido com **React Native** e **Expo**. Este aplicativo permite que o usuário escolha entre diferentes idiomas e traduza frases digitadas no campo de entrada. A interface é simples e intuitiva, com um **combobox** para selecionar os idiomas e um campo para inserir o texto a ser traduzido.
 
-First, run the development server:
+## 🚀 Funcionalidades
+
+- **Seleção de Idiomas**: O usuário pode escolher os idiomas de origem e destino através de um **combobox**.
+- **Tradução em Tempo Real**: O texto digitado no campo de entrada é automaticamente traduzido para o idioma selecionado.
+- **Interface Simples e Intuitiva**: Design minimalista para facilitar a interação do usuário com a aplicação.
+
+## 🚀 Tecnologias Utilizadas
+
+- **React Native**: Framework para desenvolvimento de aplicativos móveis nativos.
+- **Expo**: Ferramenta para facilitar o desenvolvimento e a execução de aplicativos React Native.
+- **API de Tradução**: Utiliza uma API para realizar a tradução das frases entre os idiomas selecionados (por exemplo, **Google Translate API** ou similar).
+
+## 🛠️ Como Executar o Projeto
+
+Para executar o projeto localmente, siga os passos abaixo:
+
+1. Clone o repositório:
 
 ```bash
-# For web
-yarn web
-# For ios
-yarn ios
-# For android
-yarn android
-```
-
-You can start editing the page by modifying `App.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`@gluestack-ui`](https://ui.gluestack.io/docs/overview/introduction) library that provides optionally styled and accessible components. These components are designed for easy integration into applications developed with React and React Native.
-
-
-## Learn More
-
-To learn more about Expo + Gluestack UI template, take a look at the following resources:
-
-- [Expo Documentation](https://github.com/expo/expo) - learn about Expo features and API.
-- [Gluestack UI Documenatation](https://ui.gluestack.io/docs/overview/introduction) - learn about core concepts and architecture of gluestack-ui.
-- [Gluestack Style Documentaion](https://style.gluestack.io/docs/overview/introduction) - learn about the universal styling library that is used in Gluestack-ui
-
-You can check out:
-- [the gluestack-ui GitHub repository](https://github.com/gluestack/gluestack-ui)
-- [the gluestack-style GitHub repository](https://github.com/gluestack/gluestack-style)
-Your feedback and contributions are welcome!
+git clone https://github.com/SeuUsuario/translator-app.git
